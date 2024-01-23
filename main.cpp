@@ -4,8 +4,7 @@
 #include <string>
 
 // 整数除算
-std::expected<int, std::string> idiv(int a, int b)
-{
+std::expected<int, std::string> idiv(int a, int b) {
   if (b == 0) {
     return std::unexpected{"divide by zero"};
   }
@@ -15,8 +14,7 @@ std::expected<int, std::string> idiv(int a, int b)
   return a / b;
 }
 
-void dump_result(const std::expected<int, std::string>& v)
-{
+void dump_result(const std::expected<int, std::string> &v) {
   if (v) {
     std::cout << *v << std::endl;
   } else {
@@ -24,8 +22,7 @@ void dump_result(const std::expected<int, std::string>& v)
   }
 }
 
-int main()
-{
+int main() {
   dump_result(idiv(10, 2));
   dump_result(idiv(10, 3));
   dump_result(idiv(10, 0));
